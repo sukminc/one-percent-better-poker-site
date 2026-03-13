@@ -69,3 +69,31 @@ a {
   border: 1px solid rgba(211, 180, 111, 0.2);
   background: rgba(211, 180, 111, 0.06);
 }
+
+.panel-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-glow::before {
+  content: "";
+  position: absolute;
+  inset: -30% auto auto -10%;
+  width: 50%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(211, 180, 111, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.card-float {
+  animation: cardFloat 7s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

@@ -1,384 +1,315 @@
-const productCards = [
+const products = [
   {
-    name: "1% Better - Exploit Better",
-    status: "Analytics tool",
-    hook: "Analyze your patterns, tag fish patterns, and get exploit signals GTO alone does not give you.",
-    notes: [
-      "Your leaks, tracked over time",
-      "Fish-pattern detection and labeling",
-      "More hands, more signal, 1% better adjustments",
+    name: "Exploit Better",
+    eyebrow: "Pattern engine",
+    pitch: "See your leaks. Tag fish patterns. Train exploit responses.",
+    bullets: [
+      "Your patterns",
+      "Fish labels",
+      "Edge over time",
     ],
+    mockup: "exploit",
   },
   {
-    name: "1% Better - Action Keeper",
-    status: "Workflow tool",
-    hook: "Turn verbal swaps and staking deals into signed, timestamped records before the money gets weird.",
-    notes: [
-      "Docusign-style action flow",
-      "Cleaner swaps, staking, and receipts",
-      "Less confusion, less trust friction",
+    name: "Action Keeper",
+    eyebrow: "Action record",
+    pitch: "Turn verbal swaps and staking into signed, timestamped records.",
+    bullets: [
+      "Swap terms",
+      "Signed action",
+      "Cleaner payouts",
     ],
+    mockup: "action",
   },
 ];
 
-const signals = [
-  {
-    label: "Pain",
-    value: "Real",
-    body: "Built from spots I actually lived through at the table.",
-  },
-  {
-    label: "Products",
-    value: "2",
-    body: "One exploit tool. One staking workflow tool.",
-  },
-  {
-    label: "Backers",
-    value: "Open",
-    body: "Funding is open before the first releases land.",
-  },
-];
-
-const backingBenefits = [
-  "Early access when the first tools ship",
-  "Discounted founding pricing",
-  "Priority updates as the tools tighten up",
-];
-
-const storyBlocks = [
-  {
-    label: "Part-time amateur pain point",
-    title: "I was playing part-time and still running into expensive friction.",
-    body:
-      "I do not need more poker content. I need cleaner tools. Better exploit review. Cleaner action records. Less confusion around money spots.",
-  },
-  {
-    label: "Why Action Keeper",
-    title: "A 10% swap got messy the second real money showed up.",
-    body:
-      "I swapped 10% with a friend. I busted. He finished second. I thought I was owed 10% of the score. He said he fired two bullets, so I should only get 5%. Then came the usual talk: one-bullet only, profit-only, this pro says that. That was the moment I realized verbal action is too loose once there is real money on the line.",
-  },
-  {
-    label: "Why Exploit Better",
-    title: "GTO gives numbers. It does not give me my own pattern edge.",
-    body:
-      "I wanted something that tracks my own recurring leaks, tags fish patterns, and shows where my response is still off. The fish are not changing. I am. If the data gets deeper, the edge should get clearer.",
-  },
-];
-
-const builderLinks = [
-  {
-    label: "Hendon Mob",
-    href: "https://pokerdb.thehendonmob.com/player.php?a=r&n=558957",
-  },
-];
-
-const offerCards = [
+const tiers = [
   {
     label: "Open",
     amount: "$30",
-    body: "A clean first signal. Back the build before the first release lands.",
     href: "https://buy.stripe.com/fZu8wQbT81DO8dIf6I1wY00",
   },
   {
     label: "3-Bet",
     amount: "$150",
-    body: "A stronger vote that this product line deserves real time and focus.",
     href: "https://buy.stripe.com/5kQbJ20aqeqA51w4s41wY01",
   },
   {
     label: "All-In",
     amount: "$2,000",
-    body: "A high-conviction backer move for someone who wants to materially speed up the first release cycle.",
     href: "https://buy.stripe.com/28EfZi3mCfuE1Pk7Eg1wY03",
   },
 ];
 
+function ProductMockup({ type }: { type: "exploit" | "action" }) {
+  if (type === "exploit") {
+    return (
+      <div className="panel-glow rounded-[1.5rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(8,11,10,0.55)] p-5">
+        <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
+          <span>Pattern board</span>
+          <span>Live edge map</span>
+        </div>
+        <div className="mt-5 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[1.2rem] border border-[rgba(57,82,68,0.72)] bg-[rgba(255,255,255,0.02)] p-4">
+            <div className="flex gap-2">
+              {["VPIP leak", "River overfold", "Fish aggro"].map((tag) => (
+                <span
+                  key={tag}
+                  className="chip-outline rounded-full px-2 py-1 text-[9px] font-mono uppercase tracking-[0.12em] text-[var(--color-accent)]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="mt-4 space-y-3">
+              {[
+                ["Leak severity", 84],
+                ["Fish certainty", 73],
+                ["Exploit confidence", 91],
+              ].map(([label, width]) => (
+                <div key={label as string}>
+                  <div className="flex items-center justify-between text-[11px] text-[var(--color-secondary)]">
+                    <span>{label as string}</span>
+                    <span className="font-mono text-[var(--color-muted)]">{width}%</span>
+                  </div>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-[rgba(57,82,68,0.45)]">
+                    <div className="metric-bar h-full rounded-full" style={{ width: `${width}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-[1.2rem] border border-[rgba(57,82,68,0.72)] bg-[rgba(255,255,255,0.02)] p-4">
+            <div className="grid grid-cols-5 gap-2">
+              {[
+                "#d3b46f", "#6f9778", "#d3b46f", "#26352d", "#d3b46f",
+                "#26352d", "#6f9778", "#d3b46f", "#6f9778", "#26352d",
+                "#d3b46f", "#26352d", "#6f9778", "#d3b46f", "#6f9778",
+              ].map((color, index) => (
+                <div
+                  key={index}
+                  className="h-11 rounded-xl border border-[rgba(57,82,68,0.55)]"
+                  style={{ backgroundColor: color }}
+                />
+              ))}
+            </div>
+            <div className="mt-4 flex items-center justify-between text-[11px] text-[var(--color-secondary)]">
+              <span>Fish board</span>
+              <span className="font-mono text-[var(--color-accent)]">+1% pattern edge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="panel-glow rounded-[1.5rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(8,11,10,0.55)] p-5">
+      <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
+        <span>Action flow</span>
+        <span>Signed + stamped</span>
+      </div>
+      <div className="mt-5 grid gap-4 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="rounded-[1.2rem] border border-[rgba(57,82,68,0.72)] bg-[rgba(255,255,255,0.02)] p-4">
+          <div className="space-y-3">
+            {[
+              "10% swap",
+              "2 bullets declared",
+              "Payout rule locked",
+            ].map((line, index) => (
+              <div key={line} className="flex items-center gap-3 rounded-xl border border-[rgba(57,82,68,0.55)] px-3 py-3">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[rgba(211,180,111,0.12)] text-[10px] font-mono text-[var(--color-accent)]">
+                  0{index + 1}
+                </span>
+                <span className="text-sm text-[var(--color-secondary)]">{line}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="rounded-[1.2rem] border border-[rgba(57,82,68,0.72)] bg-[rgba(255,255,255,0.02)] p-4">
+          <div className="rounded-[1rem] border border-[rgba(211,180,111,0.18)] bg-[rgba(211,180,111,0.06)] px-4 py-4">
+            <p className="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)]">
+              Action receipt
+            </p>
+            <div className="mt-3 space-y-2 text-sm text-[var(--color-secondary)]">
+              <div className="flex justify-between"><span>Deal</span><span>10% swap</span></div>
+              <div className="flex justify-between"><span>Scope</span><span>Locked</span></div>
+              <div className="flex justify-between"><span>Status</span><span>Signed</span></div>
+              <div className="flex justify-between"><span>Time</span><span>22:41 EST</span></div>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-between text-[11px] text-[var(--color-secondary)]">
+            <span>No more “I thought we meant…”</span>
+            <span className="font-mono text-[var(--color-accent)]">Docusign for action</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-transparent text-[var(--color-foreground)]">
-      <section className="table-grid relative overflow-hidden px-6 pb-20 pt-10 sm:pb-28 sm:pt-14">
+      <section className="table-grid relative overflow-hidden px-6 pb-20 pt-10 sm:pb-24 sm:pt-14">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-5 border-b border-[rgba(57,82,68,0.6)] pb-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Poker analytics and staking workflow tools
+                1% Better Poker
               </p>
               <h1 className="mt-3 text-3xl font-semibold tracking-[-0.05em] sm:text-5xl">
                 OnePercentBetter.poker
               </h1>
             </div>
-            <div className="chip-outline inline-flex w-fit items-center gap-3 rounded-full px-4 py-2 text-[11px] font-mono uppercase tracking-[0.2em] text-[var(--color-accent)]">
+            <a
+              href="https://pokerdb.thehendonmob.com/player.php?a=r&n=558957"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="chip-outline inline-flex w-fit items-center gap-3 rounded-full px-4 py-2 text-[11px] font-mono uppercase tracking-[0.2em] text-[var(--color-accent)]"
+            >
               <span className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
-              Founding backers open
-            </div>
+              Live results
+            </a>
           </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="mt-14 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
             <div>
-              <p className="max-w-3xl text-5xl font-semibold tracking-[-0.07em] text-[#f4f6ef] sm:text-7xl sm:leading-[0.94]">
-                Review cleaner.
+              <p className="max-w-3xl text-5xl font-semibold tracking-[-0.08em] text-[#f4f6ef] sm:text-7xl sm:leading-[0.9]">
+                Exploit the leak.
                 <br />
-                Exploit better.
-                <br />
-                Decide faster.
+                Lock the action.
               </p>
-
-              <p className="mt-8 max-w-2xl text-lg leading-8 text-[var(--color-secondary)]">
-                Two products built from real poker pain points:
-                exploit review that gets sharper as data grows, and action records
-                that stop swap and staking confusion before the money moves.
+              <p className="mt-7 max-w-xl text-base leading-7 text-[var(--color-secondary)] sm:text-lg">
+                Two products. One for pattern edge. One for staking clarity.
               </p>
-
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-                This is a product page first. If this makes money, this gets the focus.
-                If you want these tools to exist sooner, back them.
-              </p>
-
-              <div className="mt-10 flex flex-wrap gap-3 text-sm">
+              <div className="mt-8 flex flex-wrap gap-3 text-sm">
                 <a
                   href="#products"
                   className="rounded-full bg-[var(--color-accent)] px-5 py-3 font-medium text-[#0b0f0d] transition-transform hover:-translate-y-0.5"
                 >
-                  See the product line
+                  View products
                 </a>
                 <a
-                  href="#funding"
+                  href="#back"
                   className="rounded-full border border-[rgba(211,180,111,0.35)] bg-[rgba(211,180,111,0.08)] px-5 py-3 text-[var(--color-accent)] transition-colors hover:bg-[rgba(211,180,111,0.12)]"
                 >
-                  Become a founding backer
-                </a>
-                <a
-                  href="https://pokerdb.thehendonmob.com/player.php?a=r&n=558957"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-[var(--color-border)] px-5 py-3 text-[var(--color-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[#f4f6ef]"
-                >
-                  See live results
-                </a>
-              </div>
-            </div>
-
-            <div className="felt-panel rounded-[2rem] p-6 sm:p-8">
-              <div className="flex items-center justify-between gap-3">
-                <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Why back it
-                </p>
-                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                  Before launch
-                </p>
-              </div>
-
-              <div className="mt-7 space-y-5">
-                {[
-                  "Exploit Better is for pattern analysis and exploit growth.",
-                  "Action Keeper is for swaps, staking, and signed action records.",
-                  "If this gets backed, the poker toolset gets the time.",
-                ].map((item, index) => (
-                  <div key={item} className="flex gap-4 border-t border-[rgba(57,82,68,0.7)] pt-5 first:border-t-0 first:pt-0">
-                    <span className="text-xs font-mono text-[var(--color-muted)]">0{index + 1}</span>
-                    <p className="text-sm leading-6 text-[var(--color-secondary)]">{item}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 rounded-[1.4rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(8,11,10,0.45)] p-5">
-                <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                  Build priorities
-                </p>
-                <div className="mt-4 space-y-4">
-                  {[
-                    ["Exploit Better", 82],
-                    ["Action Keeper", 71],
-                    ["Founding backers", 90],
-                  ].map(([label, width]) => (
-                    <div key={label as string}>
-                      <div className="flex items-center justify-between text-sm text-[var(--color-secondary)]">
-                        <span>{label as string}</span>
-                        <span className="font-mono text-[var(--color-muted)]">{width}%</span>
-                      </div>
-                      <div className="mt-2 h-2 overflow-hidden rounded-full bg-[rgba(57,82,68,0.5)]">
-                        <div className="metric-bar h-full rounded-full" style={{ width: `${width}%` }} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-4 md:grid-cols-3">
-            {signals.map((signal) => (
-              <div key={signal.label} className="felt-panel rounded-[1.5rem] p-6">
-                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                  {signal.label}
-                </p>
-                <p className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef]">
-                  {signal.value}
-                </p>
-                <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">
-                  {signal.body}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {storyBlocks.map((block) => (
-              <article key={block.label} className="felt-panel rounded-[1.7rem] p-6">
-                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                  {block.label}
-                </p>
-                <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[#f4f6ef]">
-                  {block.title}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-secondary)]">
-                  {block.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="products" className="px-6 pb-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Product line
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef] sm:text-5xl">
-                Built for review, edge, and cleaner decisions.
-              </h2>
-            </div>
-            <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              One tool helps you read patterns and exploit better. The other turns loose action agreements into cleaner signed records.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            {productCards.map((card) => (
-              <article key={card.name} className="felt-panel rounded-[2rem] p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                      {card.status}
-                    </p>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#f4f6ef]">
-                      {card.name}
-                    </h3>
-                  </div>
-                  <div className="chip-outline rounded-full px-3 py-2 text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                    1% Better poker
-                  </div>
-                </div>
-
-                <p className="mt-5 text-base leading-7 text-[var(--color-secondary)]">
-                  {card.hook}
-                </p>
-
-                <div className="mt-6 grid gap-3">
-                  {card.notes.map((note) => (
-                    <div key={note} className="rounded-2xl border border-[rgba(57,82,68,0.7)] bg-[rgba(255,255,255,0.02)] px-4 py-4 text-sm text-[var(--color-secondary)]">
-                      {note}
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-10 felt-panel rounded-[2rem] p-7 sm:p-8">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-              <div>
-                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                  Simple pitch
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[#f4f6ef]">
-                  Poker tools worth paying for.
-                </h3>
-              </div>
-              <div className="space-y-4 text-sm leading-7 text-[var(--color-secondary)]">
-                <p>
-                  `Exploit Better` is about your patterns, fish patterns, and exploit signals
-                  that get better as the data set gets deeper.
-                </p>
-                <p>
-                  `Action Keeper` is about turning spoken staking and swap deals into
-                  cleaner, signed, timestamped records before interpretation starts changing after the fact.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div id="funding" className="mt-10 felt-panel rounded-[2rem] p-7 sm:p-8">
-            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-              <div>
-                <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[var(--color-muted)]">
                   Back the build
-                </p>
-                <h3 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef] sm:text-4xl">
-                  If you want this to ship faster, back it now.
-                </h3>
-                <p className="mt-5 text-base leading-7 text-[var(--color-secondary)]">
-                  I do not want to work on this for free forever. If players want
-                  these tools, this is the cleanest signal.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {builderLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target={link.href.startsWith("http") ? "_blank" : undefined}
-                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="rounded-full border border-[var(--color-border)] px-4 py-2 text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[#f4f6ef]"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
+                </a>
               </div>
+            </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
-                {offerCards.map((offer) => (
-                  <a
-                    key={offer.label}
-                    href={offer.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-[1.6rem] border border-[rgba(211,180,111,0.24)] bg-[rgba(211,180,111,0.07)] p-6 transition-transform hover:-translate-y-0.5"
-                  >
-                    <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                      {offer.label}
-                    </p>
-                    <p className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-[var(--color-accent)]">
-                      {offer.amount}
-                    </p>
-                    <p className="mt-4 text-sm leading-6 text-[var(--color-secondary)]">
-                      {offer.body}
-                    </p>
-                    <p className="mt-5 text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)]">
-                      Back with Stripe
-                    </p>
-                  </a>
-                ))}
-                <div className="rounded-[1.6rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] p-6 sm:col-span-3">
-                  <div className="grid gap-2">
-                    {backingBenefits.map((benefit) => (
-                      <p key={benefit} className="text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-muted)]">
-                        {benefit}
-                      </p>
+            <div className="card-float panel-glow rounded-[2rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(8,11,10,0.5)] p-5 sm:p-6">
+              <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
+                <span>Product preview</span>
+                <span className="text-[var(--color-accent)]">Final direction</span>
+              </div>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[1.3rem] border border-[rgba(57,82,68,0.72)] bg-[rgba(255,255,255,0.02)] p-4">
+                  <p className="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)]">
+                    Exploit Better
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {[
+                      ["Leak score", 82],
+                      ["Fish label confidence", 74],
+                      ["Exploit fit", 91],
+                    ].map(([label, width]) => (
+                      <div key={label as string}>
+                        <div className="flex items-center justify-between text-[11px] text-[var(--color-secondary)]">
+                          <span>{label as string}</span>
+                          <span className="font-mono text-[var(--color-muted)]">{width}%</span>
+                        </div>
+                        <div className="mt-2 h-2 overflow-hidden rounded-full bg-[rgba(57,82,68,0.45)]">
+                          <div className="metric-bar h-full rounded-full" style={{ width: `${width}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-[1.3rem] border border-[rgba(57,82,68,0.72)] bg-[rgba(255,255,255,0.02)] p-4">
+                  <p className="text-[10px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)]">
+                    Action Keeper
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {["Swap % locked", "Bullet count declared", "Signed payout rule"].map((line) => (
+                      <div key={line} className="rounded-xl border border-[rgba(57,82,68,0.55)] px-3 py-3 text-sm text-[var(--color-secondary)]">
+                        {line}
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <footer className="mt-12 border-t border-[rgba(57,82,68,0.6)] pt-6 text-sm text-[var(--color-muted)]">
-            Built by the same system behind 1% Better.
-          </footer>
+      <section id="products" className="px-6 pb-24">
+        <div className="mx-auto max-w-6xl space-y-5">
+          {products.map((product) => (
+            <article key={product.name} className="felt-panel rounded-[2rem] p-6 sm:p-8">
+              <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+                <div>
+                  <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                    {product.eyebrow}
+                  </p>
+                  <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef] sm:text-5xl">
+                    {product.name}
+                  </h2>
+                  <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-secondary)] sm:text-lg">
+                    {product.pitch}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {product.bullets.map((bullet) => (
+                      <span
+                        key={bullet}
+                        className="chip-outline rounded-full px-3 py-2 text-[10px] font-mono uppercase tracking-[0.14em] text-[var(--color-accent)]"
+                      >
+                        {bullet}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <ProductMockup type={product.mockup as "exploit" | "action"} />
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="back" className="px-6 pb-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="felt-panel rounded-[2rem] p-6 sm:p-8">
+            <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+              <div>
+                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                  Back the build
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef] sm:text-5xl">
+                  If you want this faster, back it.
+                </h2>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {tiers.map((tier) => (
+                  <a
+                    key={tier.label}
+                    href={tier.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="panel-glow rounded-[1.6rem] border border-[rgba(211,180,111,0.24)] bg-[rgba(211,180,111,0.07)] p-6 transition-transform hover:-translate-y-1"
+                  >
+                    <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                      {tier.label}
+                    </p>
+                    <p className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-[var(--color-accent)]">
+                      {tier.amount}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
