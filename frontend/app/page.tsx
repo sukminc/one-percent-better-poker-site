@@ -71,30 +71,26 @@ const builderLinks = [
     label: "Hendon Mob",
     href: "https://pokerdb.thehendonmob.com/player.php?a=r&n=558957",
   },
-  {
-    label: "Email Chris",
-    href: "mailto:chris.yoon@outlook.com?subject=Founding%20Backer%20for%20OnePercentBetter.poker",
-  },
 ];
-
-const ctaMailto =
-  "mailto:chris.yoon@outlook.com?subject=Founding%20Backer%20Pass%20for%20OnePercentBetter.poker&body=Name%3A%0AEmail%3A%0AI%20want%20to%20back%20the%20first%20poker%20toolset.%0A";
-
-const highRollerMailto =
-  "mailto:chris.yoon@outlook.com?subject=High%20Conviction%20Backer%20for%20OnePercentBetter.poker&body=Name%3A%0AEmail%3A%0AI%20want%20to%20back%20the%20poker%20toolset%20at%20a%20higher%20level.%0A";
 
 const offerCards = [
   {
-    label: "Founding Backer Pass",
-    amount: "$79",
-    body: "Early access, better pricing, and a direct reason to ship faster.",
-    href: ctaMailto,
+    label: "Open",
+    amount: "$30",
+    body: "A clean first signal. Back the build before the first release lands.",
+    href: "https://buy.stripe.com/fZu8wQbT81DO8dIf6I1wY00",
   },
   {
-    label: "High-Conviction Backer",
-    amount: "$299+",
-    body: "For people who want to materially speed up the first release cycle.",
-    href: highRollerMailto,
+    label: "3-Bet",
+    amount: "$150",
+    body: "A stronger vote that this product line deserves real time and focus.",
+    href: "https://buy.stripe.com/5kQbJ20aqeqA51w4s41wY01",
+  },
+  {
+    label: "All-In",
+    amount: "$2,000",
+    body: "A high-conviction backer move for someone who wants to materially speed up the first release cycle.",
+    href: "https://buy.stripe.com/28EfZi3mCfuE1Pk7Eg1wY03",
   },
 ];
 
@@ -344,11 +340,13 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-3">
                 {offerCards.map((offer) => (
                   <a
                     key={offer.label}
                     href={offer.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="rounded-[1.6rem] border border-[rgba(211,180,111,0.24)] bg-[rgba(211,180,111,0.07)] p-6 transition-transform hover:-translate-y-0.5"
                   >
                     <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
@@ -360,9 +358,12 @@ export default function Home() {
                     <p className="mt-4 text-sm leading-6 text-[var(--color-secondary)]">
                       {offer.body}
                     </p>
+                    <p className="mt-5 text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)]">
+                      Back with Stripe
+                    </p>
                   </a>
                 ))}
-                <div className="rounded-[1.6rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] p-6 sm:col-span-2">
+                <div className="rounded-[1.6rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] p-6 sm:col-span-3">
                   <div className="grid gap-2">
                     {backingBenefits.map((benefit) => (
                       <p key={benefit} className="text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-muted)]">
