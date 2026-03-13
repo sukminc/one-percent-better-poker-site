@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const productCards = [
   {
     name: "1% Better - Exploit Better",
@@ -36,6 +38,27 @@ const signals = [
     label: "Shared DNA",
     value: "1% Better",
     body: "Same system, same maker, different skin and sharper domain language.",
+  },
+];
+
+const foundingTiers = [
+  {
+    label: "Rail Supporter",
+    amount: "$19",
+    desc: "A low-friction way to back the poker toolset and get founder updates.",
+    perks: ["Founder updates", "Early build notes", "Signal that the category matters"],
+  },
+  {
+    label: "Founding Player",
+    amount: "$79",
+    desc: "The anchor offer. Early access, product influence, and discounted first-release access.",
+    perks: ["Early access", "Feature voting", "Discounted first release"],
+  },
+  {
+    label: "Founding Pro",
+    amount: "$249",
+    desc: "For serious players who want a direct lane into the first product decisions.",
+    perks: ["Priority feedback lane", "Pilot access", "Direct founder input"],
   },
 ];
 
@@ -87,6 +110,12 @@ export default function Home() {
                   className="rounded-full bg-[var(--color-accent)] px-5 py-3 font-medium text-[#0b0f0d] transition-transform hover:-translate-y-0.5"
                 >
                   See the product line
+                </a>
+                <a
+                  href="#funding"
+                  className="rounded-full border border-[rgba(211,180,111,0.35)] bg-[rgba(211,180,111,0.08)] px-5 py-3 text-[var(--color-accent)] transition-colors hover:bg-[rgba(211,180,111,0.12)]"
+                >
+                  Get founding access
                 </a>
                 <a
                   href="https://onepercentbetter.dev"
@@ -235,6 +264,178 @@ export default function Home() {
                   permission to sound like a tool for players, not a generalist landing page.
                 </p>
               </div>
+            </div>
+          </div>
+
+          <div id="funding" className="mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="felt-panel rounded-[2rem] p-7 sm:p-8">
+              <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                Founding access
+              </p>
+              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef] sm:text-4xl">
+                Back the first poker toolset. Get in early. Shape what ships.
+              </h3>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--color-secondary)]">
+                The poker site should not ask for generic support. It should offer
+                a real anchor: early access, product influence, and a cleaner lane
+                into the first releases.
+              </p>
+              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                If the tools help serious players review faster, spot exploits more
+                clearly, or manage action with less friction, the right people should
+                be able to raise their hand before launch.
+              </p>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {foundingTiers.map((tier) => (
+                  <div key={tier.label} className="rounded-[1.5rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] p-5">
+                    <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                      {tier.label}
+                    </p>
+                    <p className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef]">
+                      {tier.amount}
+                    </p>
+                    <p className="mt-4 text-sm leading-6 text-[var(--color-secondary)]">
+                      {tier.desc}
+                    </p>
+                    <div className="mt-5 space-y-2">
+                      {tier.perks.map((perk) => (
+                        <p key={perk} className="text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
+                          {perk}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="#feedback"
+                  className="rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-medium text-[#0b0f0d] transition-transform hover:-translate-y-0.5"
+                >
+                  Tell me your biggest pain point
+                </Link>
+                <a
+                  href="mailto:chris.yoon@outlook.com?subject=Founding%20Access%20for%20OnePercentBetter.poker&body=Name%3A%0AEmail%3A%0AGame%20type%3A%0ABiggest%20pain%20point%3A%0AWhich%20tool%20would%20you%20pay%20for%20first%3F%0ABudget%20or%20price%20range%3A%0A"
+                  className="rounded-full border border-[var(--color-border)] px-5 py-3 text-sm text-[var(--color-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[#f4f6ef]"
+                >
+                  Email founding interest
+                </a>
+              </div>
+            </div>
+
+            <div id="feedback" className="felt-panel rounded-[2rem] p-7 sm:p-8">
+              <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                Feedback capture
+              </p>
+              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[#f4f6ef]">
+                Tell me what you would actually pay for first.
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-[var(--color-secondary)]">
+                Keep it short. I care more about real pain and real demand than polished survey answers.
+              </p>
+
+              <form
+                action="mailto:chris.yoon@outlook.com"
+                method="post"
+                encType="text/plain"
+                className="mt-7 space-y-4"
+              >
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                      Name
+                    </span>
+                    <input
+                      name="name"
+                      type="text"
+                      placeholder="Your name"
+                      className="w-full rounded-2xl border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] px-4 py-3 text-sm text-[#f4f6ef] outline-none transition-colors placeholder:text-[var(--color-muted)] focus:border-[var(--color-accent)]"
+                    />
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                      Email
+                    </span>
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      className="w-full rounded-2xl border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] px-4 py-3 text-sm text-[#f4f6ef] outline-none transition-colors placeholder:text-[var(--color-muted)] focus:border-[var(--color-accent)]"
+                    />
+                  </label>
+                </div>
+
+                <label className="block">
+                  <span className="mb-2 block text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                    Game type
+                  </span>
+                  <select
+                    name="game_type"
+                    className="w-full rounded-2xl border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] px-4 py-3 text-sm text-[#f4f6ef] outline-none transition-colors focus:border-[var(--color-accent)]"
+                  >
+                    <option className="bg-[#101613]">Cash</option>
+                    <option className="bg-[#101613]">MTT</option>
+                    <option className="bg-[#101613]">Study / Solver-heavy</option>
+                    <option className="bg-[#101613]">Staking / Backing</option>
+                    <option className="bg-[#101613]">Mixed</option>
+                  </select>
+                </label>
+
+                <label className="block">
+                  <span className="mb-2 block text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                    Biggest pain point
+                  </span>
+                  <textarea
+                    name="pain_point"
+                    rows={4}
+                    placeholder="What is the most annoying part of your current review or action workflow?"
+                    className="w-full rounded-2xl border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] px-4 py-3 text-sm text-[#f4f6ef] outline-none transition-colors placeholder:text-[var(--color-muted)] focus:border-[var(--color-accent)]"
+                  />
+                </label>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                      First tool you would pay for
+                    </span>
+                    <select
+                      name="tool_interest"
+                      className="w-full rounded-2xl border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] px-4 py-3 text-sm text-[#f4f6ef] outline-none transition-colors focus:border-[var(--color-accent)]"
+                    >
+                      <option className="bg-[#101613]">Exploit Better</option>
+                      <option className="bg-[#101613]">Action Keeper</option>
+                      <option className="bg-[#101613]">Both</option>
+                      <option className="bg-[#101613]">Not sure yet</option>
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                      Price comfort
+                    </span>
+                    <input
+                      name="price_range"
+                      type="text"
+                      placeholder="$19 / $79 / monthly / one-time"
+                      className="w-full rounded-2xl border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] px-4 py-3 text-sm text-[#f4f6ef] outline-none transition-colors placeholder:text-[var(--color-muted)] focus:border-[var(--color-accent)]"
+                    />
+                  </label>
+                </div>
+
+                <div className="rounded-[1.4rem] border border-[rgba(211,180,111,0.2)] bg-[rgba(211,180,111,0.06)] px-4 py-4 text-sm leading-6 text-[var(--color-secondary)]">
+                  Fastest zero-backend version: this form opens your email client with the details.
+                  For real collection, I recommend either <span className="text-[var(--color-accent)]">Tally/Formspree</span>
+                  for speed or <span className="text-[var(--color-accent)]">Supabase + Resend</span> if you want owned data.
+                </div>
+
+                <button
+                  type="submit"
+                  className="rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-medium text-[#0b0f0d] transition-transform hover:-translate-y-0.5"
+                >
+                  Send founding feedback
+                </button>
+              </form>
             </div>
           </div>
 
