@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0b0f0d;
+  --color-foreground: #eef1ea;
+  --color-accent: #d3b46f;
+  --color-accent-hover: #e7ca8f;
+  --color-surface: #111815;
+  --color-surface-hover: #17211d;
+  --color-border: #26352d;
+  --color-border-hover: #395244;
+  --color-secondary: #b9c0b7;
+  --color-muted: #778278;
+  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-mono: "SFMono-Regular", "Menlo", "Monaco", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #0b0f0d;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(44, 69, 55, 0.5), transparent 36%),
+    linear-gradient(180deg, #101613 0%, #0b0f0d 100%);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: #d3b46f;
+  color: #0b0f0d;
+}
+
+.table-grid {
+  background-image:
+    linear-gradient(rgba(211, 180, 111, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(211, 180, 111, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.felt-panel {
+  background:
+    linear-gradient(180deg, rgba(23, 33, 29, 0.96) 0%, rgba(17, 24, 21, 0.96) 100%);
+  border: 1px solid rgba(57, 82, 68, 0.8);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.metric-bar {
+  background: linear-gradient(90deg, #d3b46f 0%, #7bb08a 100%);
+}
+
+.chip-outline {
+  border: 1px solid rgba(211, 180, 111, 0.2);
+  background: rgba(211, 180, 111, 0.06);
+}
