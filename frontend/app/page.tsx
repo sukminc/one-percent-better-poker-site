@@ -1,23 +1,21 @@
-import Link from "next/link";
-
 const productCards = [
   {
     name: "1% Better - Exploit Better",
     status: "Analytics tool",
-    hook: "Analyze your patterns. Spot fish patterns. Get study signals GTO does not give you.",
+    hook: "Analyze your patterns, tag fish patterns, and get exploit signals GTO alone does not give you.",
     notes: [
       "Your leaks, tracked over time",
-      "Fish-pattern detection",
-      "More data, 1% better reads",
+      "Fish-pattern detection and labeling",
+      "More hands, more signal, 1% better adjustments",
     ],
   },
   {
     name: "1% Better - Action Keeper",
     status: "Workflow tool",
-    hook: "Turn verbal staking into signed, timestamped action records.",
+    hook: "Turn verbal swaps and staking deals into signed, timestamped records before the money gets weird.",
     notes: [
       "Docusign-style action flow",
-      "Cleaner agreements and receipts",
+      "Cleaner swaps, staking, and receipts",
       "Less confusion, less trust friction",
     ],
   },
@@ -25,19 +23,19 @@ const productCards = [
 
 const signals = [
   {
+    label: "Pain",
+    value: "Real",
+    body: "Built from spots I actually lived through at the table.",
+  },
+  {
     label: "Products",
     value: "2",
-    body: "One analytics tool. One action workflow tool.",
+    body: "One exploit tool. One staking workflow tool.",
   },
   {
-    label: "Audience",
-    value: "Players",
-    body: "Built for serious players, not generic poker content.",
-  },
-  {
-    label: "Status",
+    label: "Backers",
     value: "Open",
-    body: "Founding backers are open before the first releases land.",
+    body: "Funding is open before the first releases land.",
   },
 ];
 
@@ -45,6 +43,59 @@ const backingBenefits = [
   "Early access when the first tools ship",
   "Discounted founding pricing",
   "Priority updates as the tools tighten up",
+];
+
+const storyBlocks = [
+  {
+    label: "Part-time amateur pain point",
+    title: "I was playing part-time and still running into expensive friction.",
+    body:
+      "I do not need more poker content. I need cleaner tools. Better exploit review. Cleaner action records. Less confusion around money spots.",
+  },
+  {
+    label: "Why Action Keeper",
+    title: "A 10% swap got messy the second real money showed up.",
+    body:
+      "I swapped 10% with a friend. I busted. He finished second. I thought I was owed 10% of the score. He said he fired two bullets, so I should only get 5%. Then came the usual talk: one-bullet only, profit-only, this pro says that. That was the moment I realized verbal action is too loose once there is real money on the line.",
+  },
+  {
+    label: "Why Exploit Better",
+    title: "GTO gives numbers. It does not give me my own pattern edge.",
+    body:
+      "I wanted something that tracks my own recurring leaks, tags fish patterns, and shows where my response is still off. The fish are not changing. I am. If the data gets deeper, the edge should get clearer.",
+  },
+];
+
+const builderLinks = [
+  {
+    label: "Hendon Mob",
+    href: "https://pokerdb.thehendonmob.com/player.php?a=r&n=558957",
+  },
+  {
+    label: "Email Chris",
+    href: "mailto:chris.yoon@outlook.com?subject=Founding%20Backer%20for%20OnePercentBetter.poker",
+  },
+];
+
+const ctaMailto =
+  "mailto:chris.yoon@outlook.com?subject=Founding%20Backer%20Pass%20for%20OnePercentBetter.poker&body=Name%3A%0AEmail%3A%0AI%20want%20to%20back%20the%20first%20poker%20toolset.%0A";
+
+const highRollerMailto =
+  "mailto:chris.yoon@outlook.com?subject=High%20Conviction%20Backer%20for%20OnePercentBetter.poker&body=Name%3A%0AEmail%3A%0AI%20want%20to%20back%20the%20poker%20toolset%20at%20a%20higher%20level.%0A";
+
+const offerCards = [
+  {
+    label: "Founding Backer Pass",
+    amount: "$79",
+    body: "Early access, better pricing, and a direct reason to ship faster.",
+    href: ctaMailto,
+  },
+  {
+    label: "High-Conviction Backer",
+    amount: "$299+",
+    body: "For people who want to materially speed up the first release cycle.",
+    href: highRollerMailto,
+  },
 ];
 
 export default function Home() {
@@ -55,7 +106,7 @@ export default function Home() {
           <div className="flex flex-col gap-5 border-b border-[rgba(57,82,68,0.6)] pb-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Poker analytics and workflow tools
+                Poker analytics and staking workflow tools
               </p>
               <h1 className="mt-3 text-3xl font-semibold tracking-[-0.05em] sm:text-5xl">
                 OnePercentBetter.poker
@@ -78,13 +129,14 @@ export default function Home() {
               </p>
 
               <p className="mt-8 max-w-2xl text-lg leading-8 text-[var(--color-secondary)]">
-                Two tools. One goal. Help serious players review hands better,
-                spot patterns faster, and keep action cleaner.
+                Two products built from real poker pain points:
+                exploit review that gets sharper as data grows, and action records
+                that stop swap and staking confusion before the money moves.
               </p>
 
               <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-                This site is here to sell the product line, recruit founding backers,
-                and show exactly what is getting built.
+                This is a product page first. If this makes money, this gets the focus.
+                If you want these tools to exist sooner, back them.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-3 text-sm">
@@ -99,6 +151,14 @@ export default function Home() {
                   className="rounded-full border border-[rgba(211,180,111,0.35)] bg-[rgba(211,180,111,0.08)] px-5 py-3 text-[var(--color-accent)] transition-colors hover:bg-[rgba(211,180,111,0.12)]"
                 >
                   Become a founding backer
+                </a>
+                <a
+                  href="https://pokerdb.thehendonmob.com/player.php?a=r&n=558957"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-[var(--color-border)] px-5 py-3 text-[var(--color-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[#f4f6ef]"
+                >
+                  See live results
                 </a>
               </div>
             </div>
@@ -115,9 +175,9 @@ export default function Home() {
 
               <div className="mt-7 space-y-5">
                 {[
-                  "Backers help fund the first release window.",
-                  "Backers get early access and better pricing.",
-                  "If this starts making money, the poker toolset gets the focus.",
+                  "Exploit Better is for pattern analysis and exploit growth.",
+                  "Action Keeper is for swaps, staking, and signed action records.",
+                  "If this gets backed, the poker toolset gets the time.",
                 ].map((item, index) => (
                   <div key={item} className="flex gap-4 border-t border-[rgba(57,82,68,0.7)] pt-5 first:border-t-0 first:pt-0">
                     <span className="text-xs font-mono text-[var(--color-muted)]">0{index + 1}</span>
@@ -164,6 +224,22 @@ export default function Home() {
                   {signal.body}
                 </p>
               </div>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {storyBlocks.map((block) => (
+              <article key={block.label} className="felt-panel rounded-[1.7rem] p-6">
+                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                  {block.label}
+                </p>
+                <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[#f4f6ef]">
+                  {block.title}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-[var(--color-secondary)]">
+                  {block.body}
+                </p>
+              </article>
             ))}
           </div>
         </div>
@@ -229,12 +305,12 @@ export default function Home() {
               </div>
               <div className="space-y-4 text-sm leading-7 text-[var(--color-secondary)]">
                 <p>
-                  `Exploit Better` is about pattern analysis, fish-pattern detection,
-                  and study signals that get more useful as your data grows.
+                  `Exploit Better` is about your patterns, fish patterns, and exploit signals
+                  that get better as the data set gets deeper.
                 </p>
                 <p>
-                  `Action Keeper` is about turning spoken staking and action deals
-                  into cleaner, signed, timestamped records with less friction.
+                  `Action Keeper` is about turning spoken staking and swap deals into
+                  cleaner, signed, timestamped records before interpretation starts changing after the fact.
                 </p>
               </div>
             </div>
@@ -244,56 +320,55 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
               <div>
                 <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                  Founding backers
+                  Back the build
                 </p>
                 <h3 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef] sm:text-4xl">
-                  Back the first poker toolset.
+                  If you want this to ship faster, back it now.
                 </h3>
                 <p className="mt-5 text-base leading-7 text-[var(--color-secondary)]">
-                  If you want these products to ship faster, back them early.
+                  I do not want to work on this for free forever. If players want
+                  these tools, this is the cleanest signal.
                 </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {builderLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="rounded-full border border-[var(--color-border)] px-4 py-2 text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[#f4f6ef]"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
 
-              <div>
-                <div className="rounded-[1.6rem] border border-[rgba(211,180,111,0.24)] bg-[rgba(211,180,111,0.07)] p-6">
-                  <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                    Anchor offer
-                  </p>
-                  <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
-                      <p className="text-3xl font-semibold tracking-[-0.05em] text-[#f4f6ef]">
-                        Founding Backer Pass
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-[var(--color-secondary)]">
-                        Early access. Better pricing. Front-row seat to the first releases.
-                      </p>
-                    </div>
-                    <p className="text-4xl font-semibold tracking-[-0.05em] text-[var(--color-accent)]">
-                      $79
+              <div className="grid gap-4 sm:grid-cols-2">
+                {offerCards.map((offer) => (
+                  <a
+                    key={offer.label}
+                    href={offer.href}
+                    className="rounded-[1.6rem] border border-[rgba(211,180,111,0.24)] bg-[rgba(211,180,111,0.07)] p-6 transition-transform hover:-translate-y-0.5"
+                  >
+                    <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                      {offer.label}
                     </p>
-                  </div>
-
-                  <div className="mt-6 grid gap-2">
+                    <p className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-[var(--color-accent)]">
+                      {offer.amount}
+                    </p>
+                    <p className="mt-4 text-sm leading-6 text-[var(--color-secondary)]">
+                      {offer.body}
+                    </p>
+                  </a>
+                ))}
+                <div className="rounded-[1.6rem] border border-[rgba(57,82,68,0.8)] bg-[rgba(255,255,255,0.02)] p-6 sm:col-span-2">
+                  <div className="grid gap-2">
                     {backingBenefits.map((benefit) => (
                       <p key={benefit} className="text-[11px] font-mono uppercase tracking-[0.14em] text-[var(--color-muted)]">
                         {benefit}
                       </p>
                     ))}
-                  </div>
-
-                  <div className="mt-7 flex flex-wrap gap-3">
-                    <a
-                      href="mailto:chris.yoon@outlook.com?subject=Founding%20Backer%20Pass%20for%20OnePercentBetter.poker&body=Name%3A%0AEmail%3A%0AI%20want%20to%20back%20the%20first%20poker%20toolset.%0A"
-                      className="rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-medium text-[#0b0f0d] transition-transform hover:-translate-y-0.5"
-                    >
-                      Become a founding backer
-                    </a>
-                    <Link
-                      href="#products"
-                      className="rounded-full border border-[var(--color-border)] px-5 py-3 text-sm text-[var(--color-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[#f4f6ef]"
-                    >
-                      See the tools
-                    </Link>
                   </div>
                 </div>
               </div>
