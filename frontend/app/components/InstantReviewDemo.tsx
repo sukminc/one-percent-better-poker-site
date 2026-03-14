@@ -103,8 +103,9 @@ export function InstantReviewDemo() {
   const [error, setError] = useState<string | null>(null);
   const [review, setReview] = useState<ReviewResponse | null>(null);
   const [sampleReview, setSampleReview] = useState<ReviewResponse>(() => createSampleReview());
+  const [sampleVisible, setSampleVisible] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
-  const displayReview = review ?? sampleReview;
+  const displayReview = review ?? (sampleVisible ? sampleReview : null);
 
   async function uploadFile(file: File) {
     setIsLoading(true);
@@ -127,6 +128,7 @@ export function InstantReviewDemo() {
         throw new Error(data.error ?? "Upload failed.");
       }
 
+      setSampleVisible(false);
       setReview(data);
     } catch (uploadError) {
       setError(uploadError instanceof Error ? uploadError.message : "Upload failed.");
@@ -212,6 +214,20 @@ export function InstantReviewDemo() {
           <span className="rounded-full border border-[var(--color-line)] px-3 py-2">Instant message</span>
         </div>
 
+        <div className="mt-5 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              setReview(null);
+              setSampleReview(createSampleReview());
+              setSampleVisible(true);
+            }}
+            className="rounded-full border border-[var(--color-line)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:border-[var(--color-secondary-accent)] hover:bg-[rgba(28,120,255,0.12)]"
+          >
+            Try sample report
+          </button>
+        </div>
+
         {(fileName || isLoading) && (
           <div className="mt-5 rounded-[1.1rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.03)] px-4 py-4 text-sm text-[var(--color-secondary)]">
             {isLoading ? `Reviewing ${fileName ?? "your file"}...` : `Loaded ${fileName}`}
@@ -225,8 +241,14 @@ export function InstantReviewDemo() {
         )}
       </div>
 
+      {!displayReview && !isLoading && (
+        <div className="mt-5 rounded-[1.5rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.03)] px-5 py-5 text-sm leading-6 text-[var(--color-secondary)]">
+          Drop a `.txt` file and your first review will appear here.
+        </div>
+      )}
+
       {displayReview && (
-        <div className="mt-5 space-y-4">
+        <div className="report-pop mt-5 space-y-4">
           <div className="flex items-center justify-between gap-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
               {review ? "Your review" : "Sample report"}
@@ -236,6 +258,7 @@ export function InstantReviewDemo() {
               onClick={() => {
                 setReview(null);
                 setSampleReview(createSampleReview());
+                setSampleVisible(true);
               }}
               className="rounded-full border border-[var(--color-line)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:border-[var(--color-secondary-accent)] hover:bg-[rgba(28,120,255,0.12)]"
             >
