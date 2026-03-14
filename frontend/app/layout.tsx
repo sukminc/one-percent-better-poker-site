@@ -8,13 +8,10 @@ export const metadata: Metadata = {
     "Exploit Better is a poker analysis tool built to help you find leaks, map fish patterns, and get 1% better than yesterday.",
   icons: {
     icon: [
-      { url: "/logo-256.png", sizes: "256x256", type: "image/png" },
-      { url: "/logo-48.png", sizes: "48x48", type: "image/png" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" }
+      { url: "/icon", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/logo-48.png",
-    apple: "/logo-256.png",
+    shortcut: "/icon",
+    apple: "/apple-icon",
   },
   openGraph: {
     title: "1% Better Poker",
