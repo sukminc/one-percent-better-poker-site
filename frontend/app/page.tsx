@@ -1,3 +1,5 @@
+import { InstantReviewDemo } from "./components/InstantReviewDemo";
+
 const tiers = [
   {
     label: "Open",
@@ -52,91 +54,6 @@ const philosophy = [
   },
 ];
 
-function PokerVisual() {
-  return (
-    <div className="book-panel relative overflow-hidden rounded-[2rem] p-5 sm:p-6">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(255,154,61,0.28),transparent_30%),radial-gradient(circle_at_82%_22%,rgba(28,120,255,0.28),transparent_30%)]" />
-
-      <div className="relative grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="relative min-h-[260px]">
-          <div className="poker-chip absolute left-3 top-10 h-28 w-28 rounded-full" />
-          <div className="playing-card absolute left-[4.5rem] top-4 rotate-[-14deg] rounded-[1.4rem] p-4 shadow-2xl">
-            <div className="flex items-start justify-between text-[#0c1730]">
-              <span className="text-2xl font-bold">A</span>
-              <span className="text-sm font-semibold text-[#ff7b22]">BTN</span>
-            </div>
-            <div className="mt-12 text-5xl font-semibold tracking-[-0.08em] text-[#0c1730]">A5s</div>
-            <div className="mt-8 text-sm font-medium text-[#48617f]">Pattern tagged</div>
-          </div>
-          <div className="playing-card absolute bottom-4 left-20 rotate-[8deg] rounded-[1.4rem] p-4 shadow-2xl">
-            <div className="flex items-start justify-between text-[#0c1730]">
-              <span className="text-2xl font-bold">K</span>
-              <span className="text-sm font-semibold text-[#1c78ff]">BB</span>
-            </div>
-            <div className="mt-12 text-5xl font-semibold tracking-[-0.08em] text-[#0c1730]">KQo</div>
-            <div className="mt-8 text-sm font-medium text-[#48617f]">Field pressure</div>
-          </div>
-        </div>
-
-        <div className="review-panel rounded-[1.7rem] p-5">
-          <div className="flex items-center justify-between border-b border-[var(--color-line)] pb-4">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                Exploit Better
-              </p>
-              <p className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-white">
-                MVP review
-              </p>
-            </div>
-            <div className="rounded-full bg-[rgba(255,154,61,0.14)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-              3 habits + 1 fix
-            </div>
-          </div>
-
-          <div className="mt-5 grid gap-3 sm:grid-cols-3">
-            {steps.map((step) => (
-              <div key={step.label} className="mini-panel rounded-[1.3rem] p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
-                  {step.label}
-                </p>
-                <p className="mt-3 text-4xl font-semibold tracking-[-0.06em] text-white">
-                  {step.value}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--color-secondary)]">
-                  {step.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-5 rounded-[1.4rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.04)] p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
-              Sample output
-            </p>
-            <div className="mt-4 space-y-3">
-              {[
-                ["Habit 01", "You checked back thin value too often against wide callers."],
-                ["Habit 02", "You folded rivers too quickly after passive turn lines."],
-                ["Adjustment", "Value bet thinner next session against loose calling ranges."],
-              ].map(([label, text]) => (
-                <div
-                  key={label}
-                  className="rounded-[1rem] border border-[var(--color-line)] bg-[rgba(9,18,36,0.7)] px-4 py-4"
-                >
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                    {label}
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-white">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
@@ -185,7 +102,7 @@ export default function Home() {
               </div>
             </div>
 
-            <PokerVisual />
+            <InstantReviewDemo />
           </div>
         </div>
       </section>
