@@ -19,13 +19,92 @@ type ReviewResponse = {
   };
 };
 
+const SAMPLE_TOURNAMENTS = [
+  "Daily Heater 25",
+  "Midnight Sprint 15",
+  "Bounty Builder 32",
+  "Late Night Stack 20",
+];
+
+const SAMPLE_FIELD_NOTES = [
+  "This field leaned limp-heavy and calling-heavy. Weird pressure showed up often, but the patterns stayed readable.",
+  "This tournament had more non-standard sizing than usual. The table kept drifting away from theory and into habit.",
+  "This field looked chaotic at first, but the same pressure patterns kept repeating once stacks got shorter.",
+];
+
+const SAMPLE_HABITS = [
+  {
+    title: "Preflop passivity",
+    body: "You flatted too often before the flop instead of taking the lead in clear pressure spots.",
+  },
+  {
+    title: "Thin value hesitation",
+    body: "You checked back value against wide callers when the table was already showing loose behavior.",
+  },
+  {
+    title: "River caution",
+    body: "Once pots got bigger, your default leaned toward folding rather than making one last decision.",
+  },
+  {
+    title: "Turn slowdown",
+    body: "You lost aggression on later streets and let opponents drive the pace too often.",
+  },
+  {
+    title: "Safe-line bias",
+    body: "Against non-standard players, you kept choosing the standard line instead of the more profitable one.",
+  },
+  {
+    title: "Missed isolate spots",
+    body: "You passed on a few clean chances to isolate weaker players and keep the hand simpler.",
+  },
+];
+
+const SAMPLE_ADJUSTMENTS = [
+  "Next session, take one extra thin value spot against a player who keeps calling too wide.",
+  "Next session, choose one preflop flatting spot and turn it into an aggressive lead instead.",
+  "Next session, save one river fold and review whether it was real pressure or just discomfort.",
+  "Next session, attack one obvious weak limp instead of letting the hand drift multi-way.",
+];
+
+function pickRandom<T>(items: T[], count = 1): T[] {
+  const pool = [...items];
+  const picked: T[] = [];
+
+  while (pool.length > 0 && picked.length < count) {
+    const index = Math.floor(Math.random() * pool.length);
+    picked.push(pool.splice(index, 1)[0]);
+  }
+
+  return picked;
+}
+
+function createSampleReview(): ReviewResponse {
+  const habits = pickRandom(SAMPLE_HABITS, 3);
+  const handsReviewed = 120 + Math.floor(Math.random() * 180);
+
+  return {
+    heroName: "Sample player",
+    tournamentName: pickRandom(SAMPLE_TOURNAMENTS)[0],
+    fileName: "sample-hand-history.txt",
+    handsReviewed,
+    fieldNote: pickRandom(SAMPLE_FIELD_NOTES)[0],
+    habits,
+    adjustment: {
+      title: "Next session adjustment",
+      body: pickRandom(SAMPLE_ADJUSTMENTS)[0],
+    },
+  };
+}
+
 export function InstantReviewDemo() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [review, setReview] = useState<ReviewResponse | null>(null);
+  const [sampleReview, setSampleReview] = useState<ReviewResponse>(() => createSampleReview());
   const [fileName, setFileName] = useState<string | null>(null);
+  const displayReview = review ?? sampleReview;
 
   async function uploadFile(file: File) {
     setIsLoading(true);
@@ -146,23 +225,41 @@ export function InstantReviewDemo() {
         )}
       </div>
 
-      {review && (
+      {displayReview && (
         <div className="mt-5 space-y-4">
+          <div className="flex items-center justify-between gap-4">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
+              {review ? "Your review" : "Sample report"}
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setReview(null);
+                setSampleReview(createSampleReview());
+              }}
+              className="rounded-full border border-[var(--color-line)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:border-[var(--color-secondary-accent)] hover:bg-[rgba(28,120,255,0.12)]"
+            >
+              Another sample
+            </button>
+          </div>
+
           <div className="mini-panel rounded-[1.5rem] p-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
-              First read
+              {review ? "Your review" : "Sample report"}
             </p>
             <p className="mt-2 text-xl font-semibold text-white">
-              {review.heroName ? `${review.heroName}, here is your first pattern read.` : "Here is your first pattern read."}
+              {displayReview.heroName
+                ? `${displayReview.heroName}, here is your first pattern read.`
+                : "Here is your first pattern read."}
             </p>
             <p className="mt-2 text-sm leading-6 text-[var(--color-secondary)]">
-              {review.tournamentName} · {review.handsReviewed} hands reviewed
+              {displayReview.tournamentName} · {displayReview.handsReviewed} hands reviewed
             </p>
-            <p className="mt-4 text-sm leading-6 text-[var(--color-secondary)]">{review.fieldNote}</p>
+            <p className="mt-4 text-sm leading-6 text-[var(--color-secondary)]">{displayReview.fieldNote}</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
-            {review.habits.map((habit, index) => (
+            {displayReview.habits.map((habit, index) => (
               <div key={habit.title} className="mini-panel rounded-[1.4rem] p-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
                   Habit 0{index + 1}
@@ -175,9 +272,9 @@ export function InstantReviewDemo() {
 
           <div className="rounded-[1.5rem] border border-[rgba(28,120,255,0.24)] bg-[rgba(28,120,255,0.08)] p-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-secondary-accent)]">
-              {review.adjustment.title}
+              {displayReview.adjustment.title}
             </p>
-            <p className="mt-3 text-lg font-semibold text-white">{review.adjustment.body}</p>
+            <p className="mt-3 text-lg font-semibold text-white">{displayReview.adjustment.body}</p>
           </div>
         </div>
       )}
