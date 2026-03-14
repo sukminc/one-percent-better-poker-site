@@ -67,14 +67,14 @@ export default function Home() {
                 Exploit it.
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-8 text-[var(--color-secondary)]">
-                You are 1% better than yesterday.
+                The poker coach built from your pattern.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="#product"
+                  href="#philosophy"
                   className="rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
                 >
-                  See the product
+                  See the philosophy
                 </a>
                 <a
                   href="#back"
@@ -156,29 +156,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="product" className="px-6 pb-16 sm:pb-20">
+      <section id="philosophy" className="px-6 pb-16 sm:pb-20">
         <div className="mx-auto max-w-6xl">
           <div className="product-strip rounded-[2rem] p-6 sm:p-8">
-            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="max-w-xl">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                  One product. One promise.
+                  Why this exists
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-[-0.06em] text-white sm:text-5xl">
-                  See your pattern.
-                  <br />
-                  Beat theirs.
+                  Real poker is pattern.
                 </h2>
                 <p className="mt-5 text-base leading-7 text-[var(--color-secondary)]">
-                  Your hands. Their leaks. A clearer exploit decision.
+                  GTO studies the perfect player. Real tables do not.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2">
                 {[
-                  ["You", "Repeated mistakes become visible."],
-                  ["Pool", "Fish patterns stay easy to punish."],
-                  ["Result", "Every session moves you +1%."],
+                  [
+                    "The gap",
+                    "You are not playing against perfect theory. You are playing against habits, fear, timing, and repeated mistakes.",
+                  ],
+                  [
+                    "The table",
+                    "You do not know what everyone is doing behind the monitor. But their patterns repeat. That is enough.",
+                  ],
+                  [
+                    "The truth",
+                    "You can not control the whole table. You can control your own pattern.",
+                  ],
+                  [
+                    "The goal",
+                    "Know your pattern. Catch theirs. Grow 1% every session.",
+                  ],
                 ].map(([label, copy]) => (
                   <div
                     key={label}
