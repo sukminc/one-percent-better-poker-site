@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #070809;
-  --color-foreground: #f5f7fb;
-  --color-accent: #e41d2d;
-  --color-accent-hover: #f24856;
-  --color-surface: #0f1217;
-  --color-surface-hover: #141921;
-  --color-line: rgba(255, 255, 255, 0.1);
-  --color-secondary: #bac2cf;
-  --color-muted: #7f8997;
+  --color-background: #09111f;
+  --color-foreground: #f7fbff;
+  --color-accent: #ff9a3d;
+  --color-accent-hover: #ffb56e;
+  --color-secondary-accent: #1c78ff;
+  --color-surface: #0d1830;
+  --color-surface-hover: #122140;
+  --color-line: rgba(255, 255, 255, 0.12);
+  --color-secondary: #d0d8e6;
+  --color-muted: #88a0c4;
   --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
   --font-mono: "SFMono-Regular", "Menlo", "Monaco", monospace;
 }
@@ -19,15 +20,16 @@
 }
 
 html {
-  background: #070809;
+  background: #09111f;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgba(228, 29, 45, 0.18), transparent 30%),
-    linear-gradient(180deg, #12151b 0%, #070809 70%);
+    radial-gradient(circle at top left, rgba(28, 120, 255, 0.18), transparent 26%),
+    radial-gradient(circle at top right, rgba(255, 154, 61, 0.18), transparent 22%),
+    linear-gradient(180deg, #122344 0%, #09111f 72%);
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -40,8 +42,8 @@ a {
 }
 
 ::selection {
-  background: #e41d2d;
-  color: #ffffff;
+  background: #ff9a3d;
+  color: #09111f;
 }
 
 .hero-shell {
@@ -52,44 +54,65 @@ a {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: 420px;
+  height: 480px;
   background:
-    radial-gradient(circle at 78% 18%, rgba(228, 29, 45, 0.22), transparent 26%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 58%);
+    radial-gradient(circle at 15% 12%, rgba(255, 154, 61, 0.22), transparent 20%),
+    radial-gradient(circle at 82% 14%, rgba(28, 120, 255, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 64%);
   pointer-events: none;
 }
 
-.score-panel {
+.book-panel {
   border: 1px solid var(--color-line);
   background:
-    linear-gradient(180deg, rgba(24, 28, 35, 0.96), rgba(10, 12, 16, 0.98));
+    linear-gradient(180deg, rgba(16, 29, 56, 0.96), rgba(9, 17, 31, 0.98));
   box-shadow:
-    0 28px 90px rgba(0, 0, 0, 0.38),
+    0 28px 90px rgba(4, 10, 24, 0.46),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.product-strip {
+.review-panel {
   border: 1px solid var(--color-line);
   background:
-    linear-gradient(180deg, rgba(16, 19, 25, 0.96), rgba(9, 11, 15, 0.98));
+    linear-gradient(180deg, rgba(13, 24, 48, 0.98), rgba(9, 16, 30, 0.99));
   box-shadow:
-    0 22px 70px rgba(0, 0, 0, 0.26),
+    0 26px 82px rgba(4, 10, 24, 0.42),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.score-mini-card {
+.mini-panel {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
   border: 1px solid var(--color-line);
 }
 
-.score-tier {
-  border: 1px solid rgba(228, 29, 45, 0.22);
+.tier-panel {
+  border: 1px solid rgba(255, 154, 61, 0.24);
   background:
-    linear-gradient(180deg, rgba(228, 29, 45, 0.12), rgba(255, 255, 255, 0.02));
+    linear-gradient(180deg, rgba(255, 154, 61, 0.14), rgba(28, 120, 255, 0.05));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+.poker-chip {
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.92) 0 27%, transparent 28%),
+    repeating-conic-gradient(
+      from 0deg,
+      #ff9a3d 0deg 18deg,
+      #fff 18deg 36deg
+    );
+  border: 10px solid #ff9a3d;
+  box-shadow:
+    0 18px 50px rgba(3, 10, 23, 0.4),
+    inset 0 0 0 8px rgba(255,255,255,0.08);
+}
+
+.playing-card {
+  width: 184px;
+  background: linear-gradient(180deg, #ffffff, #eef4ff);
+  border: 1px solid rgba(9, 17, 31, 0.08);
+}
+
 .score-bar {
-  background: linear-gradient(90deg, #e41d2d 0%, #ff6b76 100%);
+  background: linear-gradient(90deg, #1c78ff 0%, #ff9a3d 100%);
 }
