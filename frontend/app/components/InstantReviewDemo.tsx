@@ -139,6 +139,13 @@ function ReviewSheet({
         </div>
 
         <div className="mt-5 space-y-4 overflow-y-auto sm:max-h-[calc(100vh-8rem)]">
+          <div className="rounded-[1.5rem] border border-[rgba(28,120,255,0.24)] bg-[rgba(28,120,255,0.08)] p-5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-secondary-accent)]">
+              {review.adjustment.title}
+            </p>
+            <p className="mt-3 text-lg font-semibold text-white">{review.adjustment.body}</p>
+          </div>
+
           <div className="mini-panel rounded-[1.5rem] p-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
               First read
@@ -150,7 +157,7 @@ function ReviewSheet({
             {review.habits.map((habit, index) => (
               <div key={habit.title} className="mini-panel rounded-[1.4rem] p-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                  Habit 0{index + 1}
+                  Your pattern 0{index + 1}
                 </p>
                 <p className="mt-3 text-lg font-semibold text-white">{habit.title}</p>
                 <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">{habit.body}</p>
@@ -158,11 +165,13 @@ function ReviewSheet({
             ))}
           </div>
 
-          <div className="rounded-[1.5rem] border border-[rgba(28,120,255,0.24)] bg-[rgba(28,120,255,0.08)] p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-secondary-accent)]">
-              {review.adjustment.title}
+          <div className="mini-panel rounded-[1.5rem] p-5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
+              Paid version
             </p>
-            <p className="mt-3 text-lg font-semibold text-white">{review.adjustment.body}</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">
+              With more uploaded history, your pattern read gets sharper, more quantified, and more personal over time.
+            </p>
           </div>
 
           {mode === "sample" && (
