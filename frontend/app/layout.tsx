@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://onepercentbetter.poker"),
-  title: "OnePercentBetter.poker",
+  title: "1% Better Poker",
   description:
-    "Poker analytics and decision tools from the same 1% Better system: exploit review, cleaner action workflows, and sharper post-session feedback loops.",
+    "Exploit Better is a poker analysis tool built to help you find leaks, map fish patterns, and get 1% better than yesterday.",
   icons: {
     icon: [
       { url: "/logo-256.png", sizes: "256x256", type: "image/png" },
@@ -17,19 +17,19 @@ export const metadata: Metadata = {
     apple: "/logo-256.png",
   },
   openGraph: {
-    title: "OnePercentBetter.poker",
+    title: "1% Better Poker",
     description:
-      "Poker analytics and decision tools from the same 1% Better system.",
+      "Find the leak. Exploit it. Get 1% better than yesterday.",
     url: "https://onepercentbetter.poker",
-    siteName: "OnePercentBetter.poker",
+    siteName: "1% Better Poker",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OnePercentBetter.poker",
+    title: "1% Better Poker",
     description:
-      "Poker analytics and decision tools from the same 1% Better system.",
+      "Find the leak. Exploit it. Get 1% better than yesterday.",
   },
 };
 
