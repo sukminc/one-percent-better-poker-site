@@ -7,10 +7,17 @@ It is a direct product front door for one poker tool:
 
 - `Exploit Better`
 
+Current MVP:
+
+- one tournament in
+- three habits out
+- one next-session adjustment
+
 The site should make a poker player understand the pitch in seconds:
 
-- this tool finds your repeated leaks
-- this tool helps you spot fish patterns
+- this tool reviews one tournament
+- this tool finds three repeated habits
+- this tool gives one next-session adjustment
 - this tool helps you become 1% better than yesterday
 
 If a visitor has to read too much to understand the product, the page is wrong.
@@ -19,7 +26,7 @@ If a visitor has to read too much to understand the product, the page is wrong.
 
 Primary promise:
 
-- Find the leak. Exploit it.
+- One tournament. Three habits. One adjustment.
 
 Emotional outcome:
 
@@ -36,6 +43,10 @@ This is an exploit-focused analysis product built around:
 - fish pattern recognition
 - clearer exploit decisions
 - measurable growth over time
+
+This is the right MVP because it is small, clear, and useful.
+It should not try to prove everything.
+It only needs to give the user one honest review loop they would pay for.
 
 ## Product Thesis
 
@@ -86,9 +97,9 @@ Story should support the product, not dominate it.
 
 Best message pillars:
 
-- Your pattern
-- Fish pattern
-- Exploit edge
+- One tournament
+- Three habits
+- One adjustment
 - +1% improvement
 
 ## What To De-Emphasize
@@ -185,6 +196,9 @@ Do not let the product become bigger than the first useful version.
 
 For `Exploit Better`, prefer:
 
+- one-tournament review
+- three-habit summary
+- one recommended adjustment
 - post-session analysis
 - leak detection
 - fish pattern tagging
@@ -193,11 +207,40 @@ For `Exploit Better`, prefer:
 
 Avoid prematurely expanding into:
 
+- long-term dashboards before the first report is valuable
+- multi-tournament memory before single-tournament insight is strong
 - giant training platform features
 - social/community features
 - heavy account systems unless needed
 - unnecessary AI complexity
 - too many unrelated poker tools
+
+## MVP Output Rules
+
+Every first-version report should feel like a coach review, not a stat dump.
+
+Required structure:
+
+1. tournament context
+2. three repeated habits
+3. one table or field pattern worth noting
+4. one next-session adjustment
+
+Good output:
+
+- specific
+- behavioral
+- plain language
+- grounded in observed hands
+- useful within one read
+
+Bad output:
+
+- solver-heavy
+- too many charts
+- too many recommendations
+- vague motivational fluff
+- unexplained poker jargon
 
 ## Relationship To Other 1% Better Properties
 

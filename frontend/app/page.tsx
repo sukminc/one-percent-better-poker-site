@@ -21,19 +21,19 @@ const tiers = [
 
 const signals = [
   {
-    label: "Your pattern",
-    value: "Tagged",
-    detail: "See the leak that repeats.",
+    label: "One tournament",
+    value: "1",
+    detail: "Review a single tournament first.",
   },
   {
-    label: "Fish pattern",
-    value: "Mapped",
-    detail: "Spot what they keep doing.",
+    label: "Three habits",
+    value: "3",
+    detail: "Catch the patterns you repeat.",
   },
   {
-    label: "Edge gained",
-    value: "+1%",
-    detail: "Get better than yesterday.",
+    label: "One adjustment",
+    value: "1",
+    detail: "Leave with one next-session change.",
   },
 ];
 
@@ -62,19 +62,21 @@ export default function Home() {
                 Exploit Better
               </p>
               <h1 className="mt-5 text-5xl font-semibold tracking-[-0.07em] text-white sm:text-7xl sm:leading-[0.92]">
-                Find the leak.
+                One tournament.
                 <br />
-                Exploit it.
+                Three habits.
+                <br />
+                One adjustment.
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-8 text-[var(--color-secondary)]">
-                The poker coach built from your pattern.
+                A poker coach built from your pattern.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#philosophy"
                   className="rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
                 >
-                  See the philosophy
+                  See the idea
                 </a>
                 <a
                   href="#back"
@@ -96,7 +98,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="rounded-full bg-[rgba(228,29,45,0.16)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                  Live concept
+                  MVP
                 </div>
               </div>
 
@@ -120,14 +122,14 @@ export default function Home() {
                 <div className="flex items-end justify-between">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
-                      Session edge
+                      Sample review
                     </p>
                     <p className="mt-2 text-4xl font-semibold tracking-[-0.06em] text-white">
-                      +1.0%
+                      Your 3 leaks
                     </p>
                   </div>
                   <p className="text-sm font-medium text-[var(--color-accent)]">
-                    Better than yesterday
+                    Next session: 1 change
                   </p>
                 </div>
                 <div className="mt-5 h-3 overflow-hidden rounded-full bg-[rgba(255,255,255,0.08)]">
@@ -135,9 +137,9 @@ export default function Home() {
                 </div>
                 <div className="mt-6 grid gap-3 sm:grid-cols-3">
                   {[
-                    ["Leak found", "River overfold"],
-                    ["Fish tag", "Calls too wide"],
-                    ["Best exploit", "Value bet thinner"],
+                    ["Habit 01", "Overfolded rivers after passive turn lines"],
+                    ["Habit 02", "Checked back thin value too often vs calling stations"],
+                    ["Adjustment", "Value bet thinner next session against wide callers"],
                   ].map(([label, value]) => (
                     <div
                       key={label}
@@ -165,10 +167,10 @@ export default function Home() {
                   Why this exists
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-[-0.06em] text-white sm:text-5xl">
-                  Real poker is pattern.
+                  Real poker is habit.
                 </h2>
                 <p className="mt-5 text-base leading-7 text-[var(--color-secondary)]">
-                  GTO studies the perfect player. Real tables do not.
+                  GTO studies perfect theory. Real players repeat patterns.
                 </p>
               </div>
 
@@ -176,7 +178,7 @@ export default function Home() {
                 {[
                   [
                     "The gap",
-                    "You are not playing against perfect theory. You are playing against habits, fear, timing, and repeated mistakes.",
+                    "You are not playing against perfect theory. You are playing against habits, timing, fear, and repeated mistakes.",
                   ],
                   [
                     "The table",
@@ -188,7 +190,7 @@ export default function Home() {
                   ],
                   [
                     "The goal",
-                    "Know your pattern. Catch theirs. Grow 1% every session.",
+                    "Know your pattern. Catch theirs. Grow 1% at a time.",
                   ],
                 ].map(([label, copy]) => (
                   <div
