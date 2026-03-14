@@ -148,30 +148,41 @@ function ReviewSheet({
 
           <div className="mini-panel rounded-[1.5rem] p-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
-              First read
+              Table dynamic
             </p>
             <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">{review.fieldNote}</p>
           </div>
 
-          <div className="grid gap-4">
-            {review.habits.map((habit, index) => (
-              <div key={habit.title} className="mini-panel rounded-[1.4rem] p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
-                  Your pattern 0{index + 1}
-                </p>
-                <p className="mt-3 text-lg font-semibold text-white">{habit.title}</p>
-                <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">{habit.body}</p>
-              </div>
-            ))}
-          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div className="mini-panel rounded-[1.4rem] p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
+                Open
+              </p>
+              <p className="mt-3 text-lg font-semibold text-white">3 your patterns</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">
+                One tournament. Three one-line pattern reasons.
+              </p>
+            </div>
 
-          <div className="mini-panel rounded-[1.5rem] p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
-              Paid version
-            </p>
-            <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">
-              With more uploaded history, your pattern read gets sharper, more quantified, and more personal over time.
-            </p>
+            <div className="mini-panel rounded-[1.4rem] p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
+                3-Bet
+              </p>
+              <p className="mt-3 text-lg font-semibold text-white">More quantified</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">
+                Three patterns, deeper reasons, and limited quantified reads.
+              </p>
+            </div>
+
+            <div className="mini-panel rounded-[1.4rem] p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
+                All-In
+              </p>
+              <p className="mt-3 text-lg font-semibold text-white">Track over time</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-secondary)]">
+                Higher limits and continuous pattern tracking across sessions.
+              </p>
+            </div>
           </div>
 
           {mode === "sample" && (

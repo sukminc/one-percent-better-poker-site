@@ -4,19 +4,19 @@ const tiers = [
   {
     label: "Open",
     amount: "$30",
-    note: "Back the first build.",
+    note: "3 your patterns · one-line reasons.",
     href: "https://buy.stripe.com/fZu8wQbT81DO8dIf6I1wY00",
   },
   {
     label: "3-Bet",
     amount: "$150",
-    note: "Push the MVP faster.",
+    note: "3 patterns · more quantified reasons · limited depth.",
     href: "https://buy.stripe.com/5kQbJ20aqeqA51w4s41wY01",
   },
   {
     label: "All-In",
     amount: "$2,000",
-    note: "Back the whole run.",
+    note: "Higher limits · continuous tracking over time.",
     href: "https://buy.stripe.com/28EfZi3mCfuE1Pk7Eg1wY03",
   },
 ];
@@ -84,7 +84,7 @@ export default function Home() {
                 One better session.
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-8 text-[var(--color-secondary)]">
-                Upload one tournament. Get 3 habits and 1 next-session adjustment.
+                Upload one tournament. See the table dynamic and one 1% Better poker strategy.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -116,14 +116,12 @@ export default function Home() {
                   MVP promise
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-[-0.06em] text-white sm:text-5xl">
-                  One tournament.
+                  Demo first.
                   <br />
-                  Three habits.
-                  <br />
-                  One adjustment.
+                  Depth later.
                 </h2>
                 <p className="mt-5 text-base leading-7 text-[var(--color-secondary)]">
-                  Not a solver. Not a giant dashboard. Just one honest review loop you would actually use.
+                  The free version shows one table dynamic and one next move. Paid tiers unlock more patterns, better reasons, and longer tracking.
                 </p>
               </div>
 
