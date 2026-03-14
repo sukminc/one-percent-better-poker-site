@@ -254,7 +254,7 @@ export function createDemoReview(input: {
     fieldNote,
     habits: candidates.map(({ title, body }) => ({ title, body })),
     adjustment: {
-      title: "Next session adjustment",
+      title: "1% Better poker strategy",
       body: candidates[0]?.adjustment ?? "Upload another tournament and keep building the pattern log.",
     },
   };

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ChangeEvent, DragEvent } from "react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ReviewResponse = {
   heroName: string | null;
@@ -87,7 +87,7 @@ function createSampleReview(): ReviewResponse {
     fieldNote: pickRandom(SAMPLE_FIELD_NOTES)[0],
     habits: pickRandom(SAMPLE_HABITS, 3),
     adjustment: {
-      title: "Next session adjustment",
+      title: "1% Better poker strategy",
       body: pickRandom(SAMPLE_ADJUSTMENTS)[0],
     },
   };
@@ -188,6 +188,18 @@ export function InstantReviewDemo() {
   const [fileName, setFileName] = useState<string | null>(null);
   const [review, setReview] = useState<ReviewResponse | null>(null);
   const [sheetMode, setSheetMode] = useState<"sample" | "real" | null>(null);
+
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+
+    if (sheetMode) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [sheetMode]);
 
   async function uploadFile(file: File) {
     setIsLoading(true);
